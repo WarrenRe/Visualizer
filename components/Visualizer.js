@@ -163,9 +163,8 @@ export const Visualizer = ({ settings, uiVisible }) => {
       const cy = h / 2;
       const maxDist = Math.sqrt(cx*cx + cy*cy);
 
-      const bgHue = settings.backgroundColor;
-      const bgLight = settings.backgroundBrightness;
-      ctx.fillStyle = `hsl(${bgHue}, 50%, ${bgLight}%)`;
+      // DEBUGGING CHANGE: Force background to red
+      ctx.fillStyle = 'red';
       ctx.fillRect(0, 0, w, h);
 
       const isWaveMode = settings.audioReactionMode === 'Wave';
@@ -262,7 +261,7 @@ export const Visualizer = ({ settings, uiVisible }) => {
         if (settings.audioReactionMode === 'Immerse') {
             const t = Math.min(hopFactor * 1.5, 1);
             const h1 = baseHue, s1 = settings.objectSaturation, l1 = 35;
-            const h2 = bgHue, s2 = 50, l2 = bgLight;
+            const h2 = settings.backgroundColor, s2 = 50, l2 = settings.backgroundBrightness;
             const h = h1 + (h2 - h1) * t, s = s1 + (s2 - s1) * t, l = l1 + (l2 - l1) * t;
             fillStyle = `hsl(${h}, ${s}%, ${l}%)`;
         } else {
