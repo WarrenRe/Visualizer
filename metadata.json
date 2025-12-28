@@ -1,0 +1,7 @@
+{
+  "name": "Audio Visualizer",
+  "description": "An interactive audio-reactive generative art project featuring symmetrical neon visuals, mic-controlled ripples, and text projection.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
